@@ -5,18 +5,9 @@ import (
 	"time"
 
 	"github.com/mouadino/go-lymph"
-	nano "github.com/mouadino/go-nano"
-	"github.com/mouadino/go-nano/client"
-	"github.com/mouadino/go-nano/serializer"
 )
 
-//var echo = nano.DefaultClient("upper")
-var zqTrans = lymph.NewZeroMQTransport("tcp://127.0.0.1:5556")
-var echo = nano.CustomClient(
-	"tcp://127.0.0.1:5555",
-	lymph.NewLymphProtocol(zqTrans, serializer.MsgPackSerializer{}),
-	client.NewTimeoutExt(3*time.Second),
-)
+var echo = lymph.Client("tcp://127.0.0.1:5555")
 
 func main() {
 	c := time.Tick(1 * time.Second)
