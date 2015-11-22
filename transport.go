@@ -128,6 +128,10 @@ func (trans *zeroMQTransport) serve() {
 	}
 }
 
+func (trans *zeroMQTransport) Addr() string {
+	return trans.endpoint
+}
+
 func (trans *zeroMQTransport) Send(endpoint string, b []byte) ([]byte, error) {
 	if trans.sendSock == nil {
 		trans.Listen()

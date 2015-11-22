@@ -5,8 +5,18 @@ import (
 
 	"github.com/mouadino/go-nano"
 	"github.com/mouadino/go-nano/client"
+	"github.com/mouadino/go-nano/discovery"
 	"github.com/mouadino/go-nano/handler"
 	"github.com/mouadino/go-nano/serializer"
+	"github.com/samuel/go-zookeeper/zk"
+)
+
+var ZookeeperAnnouncer = discovery.CustomZooKeeperAnnounceResolver(
+	[]string{"127.0.0.1:2181"},
+	"lymph/services",
+	3*time.Second,
+	zk.PermAll,
+	serializer.JSONSerializer{},
 )
 
 func Server(svc interface{}) *nano.Server {
