@@ -5,11 +5,11 @@
 
 # TODO
 
-[ ] Discovery
-[ ] Connection Heartbeat
-[ ] Remote error
-[ ] Msgpack extensions
-[ ] Events
+- [ ] Discovery
+- [ ] Connection Heartbeat
+- [ ] Remote error
+- [ ] Msgpack extensions
+- [ ] Events
 
 
 [lymph]: https://github.com/deliveryhero/lymph/
